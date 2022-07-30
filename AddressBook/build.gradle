@@ -1,0 +1,50 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.cfm'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.testng:testng:7.1.0'
+	implementation 'junit:junit:4.13.1'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-elasticsearch
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-elasticsearch', version: '2.7.2'
+	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-elasticsearch
+	implementation group: 'org.springframework.data', name: 'spring-data-elasticsearch', version: '4.4.2'
+
+
+
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.3'
+	// https://mvnrepository.com/artifact/com.vaadin.external.google/android-json
+	implementation group: 'com.vaadin.external.google', name: 'android-json', version: '0.0.20131108.vaadin1'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
